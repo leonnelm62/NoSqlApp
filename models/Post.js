@@ -15,14 +15,14 @@ Post.prototype.cleanUp = function() {
     this.data = {
         title: this.data.title.trim(),
         body: this.data.body.trim(),
-        createdData: new Date(),
+        createdDate: new Date(),
         author: ObjectID(this.userid)
     }
 }
 
 Post.prototype.validate = function() {
     if(this.data.title == "") {this.errors.push("Vous n'avez pas fourni de titre")}
-    if(this.data.body == "") {this.errors.push("Vous n'avez pas fourni de post")}
+    if(this.data.body == "") {this.errors.push("Vous n'avez pas fourni de valeur à votre post")}
 }
 
 Post.prototype.create = function() {
@@ -43,4 +43,18 @@ Post.prototype.create = function() {
     })
 }
 
+Post.findSingleById = function(id) {
+    return new Promise(async function(resolve, reject) {
+        if(typeof(id) != "string" || !ObjectID.isValid(id)) {
+            reject()
+            return 
+        }
+        let post = await postsCollection.findOne({_id: new ObjectID(id)})
+        if(post) {
+            resolve(post)
+        } else {
+            reject()
+        }
+    })
+}
 module.exports = Post
