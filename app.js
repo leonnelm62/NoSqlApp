@@ -16,6 +16,9 @@ app.use(seesionOptions)
 app.use(flash())
 
 app.use(function(req, res, next) {
+    // ID de l'utilisateur valide sur l'objet courant
+    if(req.session.user) {req.visitorId = req.session.user._id} else {req.visitorId = 0}
+    // session utilisateur disponible pour tout utilisateur
     res.locals.user = req.session.user
     next()
 })
