@@ -16,18 +16,12 @@
 
         <p class="text-muted small mb-4">
             <a href="#"><img class="avatar-tiny"
-                    src="https://gravatar.com/avatar/f64fc44c03a8a7eb1d52502950879659?s=128"></a>
-            Poster par <a href="#">kittydoe</a> le <%= post.createdDate.getDate() +1 %>/<%= post.createdDate.getMonth() %>/<%= post.createdDate.getFullYear() %>
+                    src="<%= post.author.avatar %>"></a>
+            Poster par <a href="#"><%= post.author.username %></a> le <%= post.createdDate.getDate() %>/<%= post.createdDate.getMonth() +1 %>/<%= post.createdDate.getFullYear() %>
         </p>
 
         <div class="body-content">
-            <p>My roommate yells at me when I destroy things, but I do what I want.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam praesentium laboriosam unde fuga
-                accusamus reiciendis laudantium quis consequatur, beatae temporibus nemo, tempora voluptatum,
-                perspiciatis accusantium ullam molestiae cupiditate incidunt architecto.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam praesentium laboriosam unde fuga
-                accusamus reiciendis laudantium quis consequatur, beatae temporibus nemo, tempora voluptatum,
-                perspiciatis accusantium ullam molestiae cupiditate incidunt architecto.</p>
+            <%= post.body %>
         </div>
 
     </div>
