@@ -2,7 +2,9 @@ const express = require('express')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const flash = require('connect-flash')
+const markdown = require('marked')
 const app = express()
+const sanitizeHTML = require('sanitize-html')
 
 let seesionOptions = session({
     secret: "JavaScript is the best",
@@ -16,6 +18,10 @@ app.use(seesionOptions)
 app.use(flash())
 
 app.use(function(req, res, next) {
+    // markdown accèssible à tous les template
+    res.locals.filterUserHTML = function(content) {
+        return sanitizeHTML(markdown(content), {allowedTags: ['p', 'br', 'ul', 'ol', 'li', 'strong', 'bold', 'i', 'em', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'], allowedAttributes: {}})
+    }
     // alerte erreur et succès visible sur toutes les pages
     res.locals.errors = req.flash("errors")
     res.locals.success = req.flash("success")
