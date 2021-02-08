@@ -1,8 +1,9 @@
 # NoSqlApp
-# Pensez tout d'abord à créer un fichier ".env" à la racine du repertoire dans lequel vous allez inserer le code suivant:
+Pensez tout d'abord à créer un fichier ".env" à la racine du repertoire dans lequel vous allez inserer le code suivant:
 
-# CONNECTIONSTRING=mongodb+srv://"VOTRE NOM UTILISATEUR":"VOTRE MOT DE PASSE"@cluster0.rb1sw.mongodb.net/ComplexApp?retryWrites=true&w=majority
-# PORT=3000 
+<
+  CONNECTIONSTRING=mongodb+srv://"VOTRE NOM UTILISATEUR":"VOTRE MOT DE PASSE"@cluster0.rb1sw.mongodb.net/ComplexApp?retryWrites=true&w=majority
+  PORT=3000 
 >
 Nous avons créer un identifiant au besoin mais qui va expirer sous peu rassurez vous d'enlever les (") avant de coller votre user et password
 VOTRE NOM UTILISATEUR : new-userynov
