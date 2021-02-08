@@ -13,3 +13,7 @@ puis faites un npm-install
 démarrer ensuite avec npm run watch
 # Pour les utilisateur Mac pensez modifier le fichier package.json en en levant le (start)
 Voici le résultat "watch": "nodemon db --ignore frontend-js --ignore public/ && webpack --watch",
+
+On a préférer séparer le lien pour ne pas tout mélanger
+
+Lien des TP NoSQL : https://github.com/leonnelm62/NoSQL
